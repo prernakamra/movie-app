@@ -54,8 +54,24 @@ app.get('/result/:id',(req,res)=>{
     })
 
 })
+app.get('/contact',(req,res)=>{
+    console.log(req.query)
+    //res.send(`Your are search for ${req.query.moviename}`)
+    const url=`http://www.omdbapi.com/?apikey=7b1b0854&s=${req.query.Type}`
+    request(url,function(error,response,body){
+      if(!error && response.statusCode===200){
+          const data = JSON.parse(body)
+          //res.send(data)
+          res.render('Type.ejs',{moviesDump: data})
+
+      }else{
+          res.send('something  went wrong')
+      }
+
+    })
+})
 app.get('*',(req,res)=>{
-    res.send("404 not find")
+    res.render("dummy.ejs")
 })
 
 app.listen(3000,()=>{

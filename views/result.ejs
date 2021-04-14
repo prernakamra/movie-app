@@ -18,8 +18,12 @@
                     <img src="<%=movie.Poster%>" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title"><%=movie.Title%></h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="/result/<%=movie.imdbID%>" class="btn btn-primary">know moree about this movie</a>
+                      <p style="color: black" class="card-text">
+                          <B>TYPE:</B><%=movie.Type%><br>
+                          <B>YEAR OF RELEASE:</B><%=movie.Year%><br>
+
+                      </p>
+                      <a href="/result/<%=movie.imdbID%>" class="btn btn-primary">know moree about <%=movie.Title%></a>
                     </div>
                   </div>
             <%})%>
